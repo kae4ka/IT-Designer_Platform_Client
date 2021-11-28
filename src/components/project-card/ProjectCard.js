@@ -1,5 +1,5 @@
 import React from "react";
-import '../project-card/ProjectCard.scss'
+import './ProjectCard.scss'
 import london from '../../img/london.jpg'
 
 export default function ProjectCard() {

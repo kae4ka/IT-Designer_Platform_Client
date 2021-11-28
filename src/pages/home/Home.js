@@ -1,6 +1,6 @@
 import React from "react";
 
-import '../home/Home.scss'
+import './Home.scss'
 
 import ProjectCard from "../../components/project-card/ProjectCard";
 

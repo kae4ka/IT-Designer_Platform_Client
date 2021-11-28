@@ -5,22 +5,37 @@ import {
   Switch,
   Link
 } from "react-router-dom";
+import {useAuth} from './hooks/auth.hook'
+import {AuthContext} from './context/AuthContext'
+import 'materialize-css'
 
 
-import logo from '../src/img/polytech-logo@4.png';
+import logo from './img/polytech-logo@4.png';
 
 import '../src/App.scss'
 
-import Header from "./components/header/Header";
+
 import Home from "./pages/home/Home";
 import SignIn from "./pages/sign-in/SignIn";
 import SignUp from "./pages/sign-up/SignUp";
+import ProjectCard from "./components/project-card/ProjectCard"
 
 
 export default function App() {
+  const {token, login, logout, userId, ready} = useAuth()
+  const isAuthenticated = !!token
+
+  if (!ready) {
+    return <ProjectCard />
+  }
+
   return (
+      <AuthContext.Provider value={{
+        token, login, logout, userId, isAuthenticated
+      }}>
     <div className="App">
       <Router>
+        { isAuthenticated && <Home /> }
         <div className="body__wrapper">
 
           <header className="header">
@@ -80,6 +95,6 @@ export default function App() {
         </div>
       </Router>
     </div>
-
-  );
+      </AuthContext.Provider>
+  )
 }
