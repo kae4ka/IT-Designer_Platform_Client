@@ -5,7 +5,7 @@ import {
   Link
 } from "react-router-dom";
 
-import "../header/Header.scss"
+import "./Header.scss"
 
 import Home from '../../pages/home/Home';
 import SignIn from '../../pages/sign-in/SignIn';
