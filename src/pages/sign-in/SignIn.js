@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState}from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useHttp} from '../../hooks/http.hook'
 import {useMessage} from '../../hooks/message.hook'
 import {AuthContext} from '../../context/AuthContext'
@@ -10,7 +10,7 @@ export default function SignIn() {
     const message = useMessage()
     const {loading, request, error, clearError} = useHttp()
     const [form, setForm] = useState({
-        email: '', password: ''
+        login: '', password: ''
     })
 
     const preventDefault = (e) => {
@@ -44,10 +44,10 @@ export default function SignIn() {
                 <label className="label">Введите логин</label>
                 <input
                     type="text"
-                    id="email"
-                    name="email"
+                    id="login"
+                    name="login"
                     class="input"
-                    value={form.email}
+                    value={form.login}
                     onChange={changeHandler}
                 />
 
@@ -70,6 +70,6 @@ export default function SignIn() {
                     Войти
                 </button>
             </form>
-        </div>     
-    );    
+        </div>
+    );
 }

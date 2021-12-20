@@ -7,7 +7,7 @@ export default function SignUp() {
     const message = useMessage()
     const {loading, request, error, clearError} = useHttp()
     const [form, setForm] = useState({
-        email: '', password: '', password_repeat:''
+        login: '', password: '', password_repeat:''
     })
 
     const preventDefault = (e) => {
@@ -28,7 +28,7 @@ export default function SignUp() {
 
     const registerHandler = async () => {
         if(form.password !== form.password_repeat){
-            message("Пароли не совпадают!1!")
+            message("Пароли не совпадают!")
             return
         }
         try {
@@ -46,10 +46,10 @@ export default function SignUp() {
                 <label for="login" className="label">Введите email</label>
                 <input
                     type="text"
-                    id="email"
-                    name="email"
+                    id="login"
+                    name="login"
                     class="input"
-                    value={form.email}
+                    value={form.login}
                     onChange={changeHandler}
                 />
 
@@ -88,5 +88,5 @@ export default function SignUp() {
                 </button>
              </form>
     </div>
-    );    
+    );
 }
