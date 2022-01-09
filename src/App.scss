@@ -28,6 +28,10 @@
         text-decoration: none;
     }
 
+    &__link:hover {
+        text-decoration: underline;
+    }
+
     .list-item {
         margin-left: 1rem;
         list-style-type: none;
@@ -47,4 +51,30 @@
     background: green;
     color: white;
     border-radius: 5px;
+}
+
+.burger-menu {
+    display: none;
+}
+
+@media (max-width:1150px) {
+    .navigation {
+        display: none;
+    }
+
+    .burger-menu {
+        background: none;
+        border: none;
+        display: block;
+    }
+    .burger-icon {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@media (max-width:650px) {
+    .search-form {
+        display: none;
+    }
 }

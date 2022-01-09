@@ -7,10 +7,11 @@ import {
 } from "react-router-dom";
 import {useAuth} from './hooks/auth.hook'
 import {AuthContext} from './context/AuthContext'
-import 'materialize-css'
+// import 'materialize-css'
 
 
 import logo from './img/polytech-logo@4.png';
+import burger from '../src/img/burger-menu.png';
 
 import '../src/App.scss'
 
@@ -18,7 +19,9 @@ import '../src/App.scss'
 import Home from "./pages/home/Home";
 import SignIn from "./pages/sign-in/SignIn";
 import SignUp from "./pages/sign-up/SignUp";
+import Location from "./pages/location/Location"
 import ProjectCard from "./components/project-card/ProjectCard"
+import ProjectDetail from "./components/project-detail/ProjectDetail";
 
 
 export default function App() {
@@ -39,6 +42,9 @@ export default function App() {
         <div className="body__wrapper">
 
           <header className="header">
+
+            <button className="burger-menu"><img className="burger-icon" src={burger}/></button>
+
             <img src={logo} alt="logo" class="logo" />
 
             <form class="search-form">
@@ -82,9 +88,11 @@ export default function App() {
               </Route>
 
               <Route path="/about">
+                <Location/>
               </Route>
 
               <Route path="/users">
+                <ProjectDetail/>
               </Route>
 
               <Route exact path="/">

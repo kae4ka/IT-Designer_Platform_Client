@@ -1,21 +1,20 @@
-import React from "react";
-
+import { Component } from "react";
 import './Home.scss'
 
-import ProjectCard from "../../components/project-card/ProjectCard";
+class Home extends Component{
 
-export default function Home() {
-    return(
-        <>
-            {/* <h1>Home</h1> */}
-            <div class="wrapper">
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
+    constructor(props) {
+        super(props);
+
+    }
+
+    render() {
+        return(
+            <div className="home-page">
+                <h2 className="world-name">Планета Земля</h2>
             </div>
-        </>
-    );    
+        );    
+    }
 }
+
+export default Home;
