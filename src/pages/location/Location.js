@@ -1,40 +1,122 @@
-import { Component } from "react";
+import { Component, useState, useEffect } from "react";
+import { PROJECTS } from '../../shared/projects';
 import './Location.scss';
-import img1 from '../../img/project-img-1.jpg';
-import img2 from '../../img/project-img-2.jpg';
-import img3 from '../../img/project-img-3.jpg';
-import img4 from '../../img/project-img-4.jpg';
-import img5 from '../../img/project-img-5.jpg';
-import img6 from '../../img/project-img-6.jpg';
 
-class Location extends Component {
 
-    constructor(props) {
-        super(props);
-        
-    }
-    
-
-    
-
-    render() {
+const ShowProjectDetails = ({project, isPopupOpen}) => {
+    console.log(project);
+    if(project != undefined) {
         return(
-            <div className="location-page">
-                <h2 className="location-name">Земля, Грузия, Тбилиси</h2>
-                <div className="wrapper">
-                    <img src={img1} alt=""/>
-                    <img src={img2} alt=""/>
-                    <img src={img3} alt=""/>
-                    <img src={img4} alt=""/>
-                    <img src={img5} alt=""/>
-                    <img src={img6} alt=""/>
-                </div>
-                <div className="timeline">
-                
-                </div>
+            <div className="project-detail" visibility={isPopupOpen}>
+                <img src={project.image} alt={project.title} />
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+            </div>
+        );
+    } else {
+        return(
+            <div>
+                Тут пусто
             </div>
         );
     }
+}
 
-}   
-export default Location;
+export default function Location() {
+    const [prjcts,setPrjcts] = useState([]);
+    const [isPopupOpen,setIsPopupOpen] = useState(false);
+
+    let clickedProjectId = null;
+
+    useEffect(() => {
+        setPrjcts(PROJECTS);
+    });
+
+    return(
+
+        <div className="location">
+            <h2 className="location-heading">Грузия</h2>
+            {
+            (prjcts != null)? 
+            (
+                <div className="projects-container">
+                    {
+                        prjcts.map((project)=> {
+                            return(
+                                <div key={project.id} className="project-card">
+                                    <img src={project.image} alt={project.title} className="project-image" onClick={() => {
+                                        clickedProjectId = project.id
+                                        setIsPopupOpen(true);
+                                    }
+                                        }/>
+                                </div>
+                            );
+                        })
+                    }
+
+                    <div className="project-details">
+                        <button onClick={() => console.log(clickedProjectId)}>Show current Id</button>
+                        <ShowProjectDetails project={prjcts[clickedProjectId]} isPopupOpen={isPopupOpen}/>
+                    </div>
+                </div>
+            ):
+            (
+                <div>
+                    <p>Здесь пока нет проектов</p>
+                </div>
+            )
+        }
+        </div>
+    );
+}
+
+
+// class Location extends Component {
+
+//     constructor(props) {
+//         super(props);
+
+//         this.state = {
+//             projects: PROJECTS,
+//         }
+//     }
+
+//     renderProjects({projects}) {
+//         console.log(projects);
+//         if(projects != null) {
+//             return(
+//                 <div>
+//                     {
+//                         projects.map((project)=> {
+//                             return(
+//                                 <div key={project.id}>
+//                                     <h3>{project.title}</h3>
+//                                     <img src={project.image} alt={project.title}/>
+//                                 </div>
+//                             );
+//                         })
+//                     }
+//                 </div>
+//             );
+
+//         } else {
+//             return(
+//                 <div>
+//                     <p>Здесь пока нет проектов</p>
+//                 </div>
+//             );
+//         }
+//     }
+
+//     render() {
+//         return(
+//             <div className="Location">
+//                 <h2>Грузия</h2>
+//                 {this.renderProjects(this.state.projects)}
+//             </div>
+//         );
+//     }
+// }
+
+
+// export default Location;
