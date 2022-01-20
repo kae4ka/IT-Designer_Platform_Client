@@ -1,0 +1,22 @@
+.location {
+    background-image: url("../../../public/assets/images/location1-background.jpg");
+    background-repeat: no-repeat;
+    padding-top: 3%;
+}
+
+.projects-container {
+    margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project {
+    &-image{
+        width: 600px;
+        height: 375px;
+        border-radius: 10%;
+    }
+}
