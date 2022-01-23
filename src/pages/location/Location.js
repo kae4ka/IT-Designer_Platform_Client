@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { PROJECTS } from "../../shared/projects";
+import classnames from 'classnames';
 import "./Location.scss";
 
 const ShowProjectDetails = ({ project }) => {
     return project !== undefined ? (
         <div className="project-detail">
-            <img src={project.image} alt={project.title} />
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
+            <img src={project.image} alt={project.title} className="project-detail__image"/>
+            <p className="project-detail__text">{project.description}</p>
         </div>
     ) : (
         <div></div>
@@ -17,9 +17,11 @@ const ShowProjectDetails = ({ project }) => {
 export default function Location() {
     const [prjcts, setPrjcts] = useState([]);
     const [clickedProjectId, setClickedProjectId] = useState();
+    const [isHiden, setIsHiden] = useState();
 
     useEffect(() => {
         setPrjcts(PROJECTS);
+        setIsHiden(true);
     }, []);
 
     return (
@@ -36,13 +38,15 @@ export default function Location() {
                                     className="project-image"
                                     onClick={() => {
                                         setClickedProjectId(project.id);
+                                        setIsHiden(!isHiden);
                                     }}
                                 />
                             </div>
                         );
                     })}
 
-                    <div className="project-details">   
+                    <div className={classnames("project-details", {"hide" : isHiden})}>
+                        <button className="project-details__close-btn" onClick={() => setIsHiden(!isHiden)}>x</button>  
                         <ShowProjectDetails
                             project={prjcts[clickedProjectId]}
                         />

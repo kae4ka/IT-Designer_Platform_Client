@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "reactstrap";
-import "./Home.css";
+import { NavLink } from "react-router-dom";
+import "./Home.scss";
 
 class Home extends Component {
     constructor(props) {
@@ -11,14 +11,16 @@ class Home extends Component {
         }
     } 
 
-
     render() {
         return(
 
             <div className="world">
-                <NavLink to="/location">
+
                     <h2 className="world__heading">Планета Земля</h2>
-                </NavLink>
+
+                    <NavLink to="/location">
+                        <div className="location-point"></div>
+                    </NavLink>
             </div>
 
         );

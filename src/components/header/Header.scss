@@ -10,7 +10,6 @@
 
 .header {
     padding-left: 5%;
-    padding-right: 5%;
     padding-top: 3%;
     padding-bottom: 3%;
     display: flex;
@@ -31,19 +30,24 @@
 }
 
 .navigation {
-    flex-basis: 30%;
+    flex-basis: 60%;
 }
 
 .navigation__list {
     display: flex;
     list-style: none;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+.navigation_item {
+    margin-right: 5%;
 }
 
 .navigation__link {
     color:#000;
     font-size: 1.5rem;
     text-decoration: none;
+    margin-right: 5%;
 }
 
 .navigation__link:hover {
@@ -67,7 +71,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: lightgreen;
+    background-color: #585858;
     z-index: 1050;
     display: flex;
     flex-direction: column;
@@ -78,7 +82,10 @@
     margin-top: 2rem;
     border:2px solid white;
     border-radius: 5%;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    padding-bottom: 10rem;
 }
 
 .modal__heading {
@@ -111,4 +118,47 @@
 
 .close-btn:hover {
     color: black;
+}
+
+@media (max-width:1200px) {
+    .logo {
+        flex-basis: 50%;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .modal-content {
+        padding-top: 2rem;
+        padding-left: 6rem;
+        padding-right: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+@media (max-width:570px) {
+
+    .header{ 
+        padding-top: 10%;
+    }
+    .link--logo {
+        align-self: center;
+        margin-top: 5%;
+    }
+
+    .logo {
+        width: 84px;
+        height: 25px;
+    }
+
+    .navigation__link {
+        font-size: 1rem;
+    }
+
+    .modal-content {
+        padding-top: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
+    }
+
 }
