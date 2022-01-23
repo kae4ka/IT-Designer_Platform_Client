@@ -13,10 +13,54 @@
     gap: 20px;
 }
 
+.hide{
+    display: none;
+}
+
 .project {
+
     &-image{
         width: 600px;
         height: 375px;
         border-radius: 10%;
+    }
+
+    &-details {
+        border: 1rem solid green;
+        border-radius: 2rem;
+        padding-top: 5%;
+        padding-left: 2%;
+        padding-right: 2%;
+        width:65%;
+        min-height:70%;
+        background-color: whitesmoke;
+        overflow:hidden;
+        position:fixed;
+        margin-bottom: 5%;
+
+        &__close-btn{
+            font-size: 4rem;
+            border: none;
+            background: none;
+            text-align: right;
+            margin-left: 96%;
+        }
+    }
+}
+
+.project-detail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &__image {
+        width: 50%;
+        border-radius: 8%;
+    }
+
+    &__text {
+        text-align: left;
+        width: 40%;
+        font-size: 1.4rem;
     }
 }

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import {Button} from 'reactstrap';
-import './SignUp.css';
+import './SignUp.scss';
 
 class SignUp extends Component {
 

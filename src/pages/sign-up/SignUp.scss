@@ -1,0 +1,93 @@
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #e8e8e8;
+    height: 100vh;
+}
+
+.signup__heading {
+    padding-top: 5%;
+    font-size: 2rem;
+}
+
+.reg-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-input {
+    margin-top: 0.5rem;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 1rem;
+}
+
+.form-input:focus {
+    background: #a0a0a0;
+}
+
+.form-label {
+    text-align: left;
+    width: 20rem;
+    font-size: 1.5rem;
+}
+
+.reg-btn {
+    font-size: 1rem;
+    color: white;
+    background: green;
+    width: 16rem;
+    height: 4rem;
+    border-radius: 2rem;
+    border: none;
+    margin-top: 2rem;
+    align-self: center;
+}
+
+.reg-btn:hover{
+    background: darkgreen;
+}
+
+@media(max-width:570px) {
+    .form {
+        &-input{
+            margin-top: 0.5rem;
+            height: 1.5rem;
+            width: 20rem;
+            border-radius: 1rem;
+        }
+        &-label {
+            width: 20rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    .reg-btn {
+        font-size: 1rem;
+        color: white;
+        background: green;
+        width: 12rem;
+        height: 3rem;
+        border-radius: 2rem;
+        border: none;
+        margin-top: 2rem;
+        align-self: center;
+    }
+
+    .signup__heading {
+        font-size: 1.4rem;
+        margin-top: 10%;
+    }
+}
