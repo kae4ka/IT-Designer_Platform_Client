@@ -1,21 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import "./Home.scss";
 
-import './Home.scss'
+class Home extends Component {
+    constructor(props) {
+        super(props);
 
-import ProjectCard from "../../components/project-card/ProjectCard";
+        this.state = {
 
-export default function Home() {
-    return(
-        <>
-            {/* <h1>Home</h1> */}
-            <div class="wrapper">
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
+        }
+    } 
+
+    render() {
+        return(
+
+            <div className="world">
+
+                    <h2 className="world__heading">Планета Земля</h2>
+
+                    <NavLink to="/location">
+                        <div className="location-point"></div>
+                    </NavLink>
             </div>
-        </>
-    );    
+
+        );
+    }
 }
+
+export default Home;
